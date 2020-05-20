@@ -1,0 +1,63 @@
+{% assign form = include.form %}
+
+{% assign required = "" %}
+{% assign glyph="" %}
+
+<div class="google-form">
+
+    <script type="text/javascript">var submitted = false;</script>
+
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+        onload="if(submitted) {window.location='thankyou';}"></iframe>
+
+    <form action="{{ form.action }}" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+        {% for q in form.questions %}
+
+        {% if q.required %}
+        {% assign required = "required" %}
+        {% assign glyph = '<span class="glyph">&nbsp;*</span>' %}
+        {% else %}
+        {% assign required = "" %}
+        {% assign glyph = '<span class="glyph">&nbsp;&nbsp;</span>' %}
+        {% endif %}
+
+        <div class="question">
+            {% if q.type == "longtext" %}
+            <label for="{{ q.name }}">{{ q.label }}</label>
+            {{ glyph }}
+            <textarea rows="5" placeholder="{{ q.placeholder }}" name="{{ q.name }}" {{ required }}></textarea>
+            {% elsif q.type == "radio" %}
+            <label for="{{ q.name }}">{{ q.label }}</label>
+            {{ glyph }}
+            <div class="input-group">
+                {% for o in q.options %}
+                <input name="{{ q.name }}" type="radio" id="{{o.value}}" value="{{o.value}}" />
+                <label for="{{o.value}}">{{ o.text }}</label><br />
+                {% endfor %}
+            </div>
+            {% elsif q.type == "checkbox" %}
+            <label for="{{ q.name }}">{{ q.label }}</label>
+            {{ glyph }}
+            <div class="input-group">
+                {% for o in q.options %}
+                <input name="{{ q.name }}" type="checkbox" id="{{o.value}}" value="{{o.value}}" />
+                <label for="{{o.value}}">{{ o.text }}</label><br />
+                {% endfor %}
+            </div>
+            {% else %}
+            <label for="{{ q.name }}">{{ q.label }}</label>
+            {{ glyph }}
+            <input name="{{ q.name }}" type="{{ q.type | q.text }}" placeholder="{{ q.placeholder | p.label }}"
+                {{ required }} />
+            {% endif %}
+        </div>
+
+        <hr />
+
+        {% endfor %}
+
+        <div class="submit-form-wrapper">
+            <button type="submit">Let's Rock! &#129304;</button>
+        </div>
+    </form>
+</div>
