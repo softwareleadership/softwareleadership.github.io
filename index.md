@@ -1,7 +1,8 @@
 ---
+title: The Software Leadership Podcast
 call_to_action:
     text: Shape the Future!
-    url: 
+    url: '#shape-the-future-of-software-leadership'
 form:
     action: https://docs.google.com/forms/d/e/1FAIpQLSdesJehmvKqjXZmy-ChQVYLl9ULr4XAOz8Uc85DkiIiQj8qLg/formResponse
     questions:
@@ -109,14 +110,20 @@ form:
 
 ## About the Show
 
-This is where you come in. I'm still in the exploratory phase and that means 
-**you have an opportunity to shape the format, focus and future of the podcast**.
-
-I really want to hear from you! Fill out the form below and join the conversation.
+I first took the plunge into the realm of podcasting in 2019 when I joined the 
+team at [Software Engineering Radio (se-radio.net)](https://www.se-radio.net/team/jeff-doolittle/).
+It has been an amazing experience so far. However, being just one out of about 10 hosts means 
+I am limited in the amount of content I can produce and in the nature of the topics 
+available for exploration. I sense it may be time to start something of my own.
 
 <hr />
 
 ## Shape the Future of Software Leadership!
+
+This is where you come in. I'm still in the exploratory phase and that means 
+**you have an opportunity to shape the format, focus and future of  <a href="/" target="_self">{{ site.title }}</a>**.
+
+I really want to hear from you! Fill out the form below and join the conversation.
 
 [Privacy Policy](/privacy)
 
