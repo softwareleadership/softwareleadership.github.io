@@ -1,9 +1,14 @@
 title: The Software Leadership Podcast
+url: "https://softwareleadership.io"
+lang: en-US
+subtitle: 
+author: Jeff Doolittle
 description: The podcast that helps make good software professionals great!
-show_downloads: false
+email: jeff@softwareleadership.io
+
 show_host:
   name: Jeff Doolittle
-  pic: /assets/host-headshot.jpg
+  pic: /assets/images/logo_1440.jpg
   url: "https://jeffdoolittle.com"
 google_analytics: UA-167225347-1
 theme: jekyll-theme-cayman
@@ -16,9 +21,14 @@ defaults:
       path: ""
     values:
       layout: default
+      image: /assets/images/og_image.png
   -
     scope: 
       path: "redirects"
     values:
         layout: redirect
         sitemap: false
+
+permalink: /:year/:slug/
+
+markdown: kramdown

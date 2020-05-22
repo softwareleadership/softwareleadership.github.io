@@ -1,0 +1,9 @@
+<header class="page-header" role="banner">
+    <h1 class="project-name">
+        <i class="fas fa-podcast fa-2x c-logo"></i>
+        {{ site.title }}</h1>
+    <h2 class="project-tagline">Episode {{ page.episode }}: {{ page.title }}</h2>
+    {% if page.call_to_action %}
+    <a href="{{ page.call_to_action.url }}" class="btn">{{ page.call_to_action.text }}</a>
+    {% endif %}
+</header>
