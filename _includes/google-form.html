@@ -26,28 +26,29 @@
             <label for="{{ q.name }}">{{ q.label }}</label>
             {{ glyph }}
             <textarea rows="5" placeholder="{{ q.placeholder }}" name="{{ q.name }}" {{ required }}></textarea>
-            {% elsif q.type == "radio" %}
+            {% elsif q.type == "radio" or q.type == "checkbox" %}
             <label for="{{ q.name }}">{{ q.label }}</label>
             {{ glyph }}
             <div class="input-group">
                 {% for o in q.options %}
-                <input name="{{ q.name }}" type="radio" id="{{o.value}}" value="{{o.value}}" />
+                <input data-subtype="chooser" name="{{ q.name }}" type="{{ q.type }}" id="{{o.value}}"
+                    value="{{o.value}}" />
                 <label for="{{o.value}}">{{ o.text }}</label><br />
                 {% endfor %}
-            </div>
-            {% elsif q.type == "checkbox" %}
-            <label for="{{ q.name }}">{{ q.label }}</label>
-            {{ glyph }}
-            <div class="input-group">
-                {% for o in q.options %}
-                <input name="{{ q.name }}" type="checkbox" id="{{o.value}}" value="{{o.value}}" />
-                <label for="{{o.value}}">{{ o.text }}</label><br />
-                {% endfor %}
+                {% if q.include_other %}
+                <input data-subtype="otherchooser" name="{{ q.name }}" type="{{q.type}}" id="{{ q.name }}.other"
+                    value="__other_option__" />
+                <label for="{{ q.name }}.other">Other</label>
+                <input data-subtype="othertext" class="input-other inactive" id="{{ q.name }}.othertext"
+                    type="{{ 'text' }}" />
+                <input data-subtype="otherhidden" type="hidden" id="{{ q.name }}.otherhidden"
+                    name="{{ q.name }}.other_option_response" value="" disabled />
+                {% endif %}
             </div>
             {% else %}
             <label for="{{ q.name }}">{{ q.label }}</label>
             {{ glyph }}
-            <input name="{{ q.name }}" type="{{ q.type | q.text }}" placeholder="{{ q.placeholder | p.label }}"
+            <input name="{{ q.name }}" type="{{ q.type | 'text' }}" placeholder="{{ q.placeholder | p.label }}"
                 {{ required }} />
             {% endif %}
         </div>
@@ -61,3 +62,52 @@
         </div>
     </form>
 </div>
+
+<script>
+    $(() => {
+
+        let resetOther = (text, hidden) => {
+            $(text).val("");
+            $(text).prop('required', false);
+            $(text).addClass('inactive');
+            $(hidden).val("");
+            $(hidden).prop('disabled', true);
+        };
+
+        let initChooser = (chooser, other, text, hidden) => {
+            $(chooser).click(e => {
+                if ($(chooser).attr('type') == 'radio') {
+                    resetOther(text, hidden);
+                }
+            });
+            $(text).keyup(e => {
+                $(hidden).val($(text).val());
+            });
+        };
+
+        let initOtherChooser = (other, text, hidden) => {
+            $(other).click(e => {
+                if ($(other).prop('checked')) {
+                    $(text).removeClass('inactive').focus();
+                    $(text).prop('required', true);
+                    $(hidden).prop('disabled', false);
+                } else {
+                    resetOther(text, hidden);
+                }
+            });
+        };
+
+        let inputGroups = $("div.input-group");
+        inputGroups.each((idx, el) => {
+            var inputs = $(el).children("input");
+            let choosers = inputs.filter("[data-subtype='chooser']");
+            let otherChooser = inputs.filter("[data-subtype='otherchooser']").first()[0];
+            var otherText = inputs.filter("[data-subtype='othertext']").first()[0];
+            var otherHidden = inputs.filter("[data-subtype='otherhidden']").first()[0];
+
+            choosers.each((idx, chooser) => initChooser(chooser, otherChooser, otherText, otherHidden));
+            initOtherChooser(otherChooser, otherText, otherHidden);
+        });
+    });
+
+</script>

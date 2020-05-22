@@ -28,6 +28,7 @@ form:
             label: What length of podcast episode do you typically prefer to listen to?
             required: true
             type: radio
+            include_other: true
             name: entry.1916619316
             options:
                 -
@@ -39,11 +40,11 @@ form:
                 -
                     text: "> 45 minutes"
                     value: "> 45 minutes"
-
         - 
             label: What sources do you typically use for discovering new podcasts?
             required: true
             type: checkbox
+            include_other: true
             name: entry.1594495330
             options:
                 -
@@ -68,7 +69,7 @@ form:
             label: Guest Suggestions
             required: false
             type: longtext
-            placeholder: What guests would do you want to hear offering their perspectives on software leadership?
+            placeholder: What guests would you want to hear offering their perspectives on software leadership?
             name: entry.364333037
         - 
             label: Software Leadership

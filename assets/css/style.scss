@@ -18,9 +18,10 @@ $color-fuchsia: #f012be;
 $color-purple: #b10dc9;
 $color-black: #111111;
 $color-gray: #aaaaaa;
-$color-silver: #dddddd;
+$color-silver: #d0d0d0;
 $color-white: #ffffff;
 
+$color-darksilver: #cccccc;
 $color-lightgray: #eeeeee;
 $color-darkgray: #777777;
 $color-darkslateblue: #2B3856;
@@ -132,6 +133,10 @@ div.logo-panel {
     color: $color-blue;
 }
 
+.inactive {
+    display: none !important;
+}
+
 div.google-form form {
     width: 80%;
     font-size: .8em;
@@ -161,7 +166,7 @@ div.google-form form {
             border:none;
             background-color:#eee;
             &:hover {
-                background-color: $color-silver;
+                background-color: $color-darksilver;
             }
         }
         textarea {
@@ -173,7 +178,7 @@ div.google-form form {
             background-color:#eee;
             resize: none;
             &:hover {
-                background-color: $color-silver;
+                background-color: $color-darksilver;
             }
         }
         .input-group {
@@ -185,9 +190,23 @@ div.google-form form {
             &:hover {
                 background-color: $color-silver;
             }
-            input {
+            input[type=checkbox] {
                 width: 5%;
                 margin-bottom: .3em;
+            }
+            input[type=radio] {
+                width: 5%;
+                margin-bottom: .3em;
+            }
+            input[type=text].input-other {
+                margin-top: .3em;
+                margin-bottom: .3em;
+                margin-left: 2.8em;
+                background-color: $color-lightgray;
+                &:hover {
+                    color: $color-blue;
+                    cursor: pointer;
+                }
             }
             label {
                 width: 90%;
