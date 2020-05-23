@@ -1,0 +1,56 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+{% include head.html %}
+
+<body>
+
+    <header>
+        <div class="player-header">
+            <img src="/assets/images/og_image.png" />
+        </div>
+        {% include google-ads-episode.html %}
+        <div class="player">
+            <iframe src="https://archive.org/embed/RW02RaveningWolvesPart2" frameborder="0"
+                webkitallowfullscreen="false" mozallowfullscreen="false" width="320" height="30"></iframe>
+        </div>
+
+    </header>
+    <main class="listen-main">
+        <div id="episode"></div>
+        <div id="summary"></div>
+    </main>
+
+    {% include footer.html %}
+    {% include scripts.html %}
+    <script>
+        var url = new URL(location);
+        var episodeId = url.searchParams.get('e');
+
+        fetch('/episodes.json')
+            .then(r => r.json())
+            .then(r => r.episodes.filter(e => e.id === episodeId))
+            .then(r => {
+                if (r.length === 0) {
+                    throw new Error('No episode found');
+                } else {
+                    return r[0];
+                }
+            })
+            .then(e => {
+                let ex = document.getElementById("summary");
+                ex.innerText = e.summary;
+
+                let ep = document.getElementById("episode");
+                ep.innerText = `You're listening to Episode ${e.episode}: ${e.title}`
+            })
+            .catch(err => {
+                console.log(err);
+                location = "/404/?url=" + encodeURIComponent(location);
+            });
+    </script>
+</body>
+
+</html>

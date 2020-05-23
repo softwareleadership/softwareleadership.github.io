@@ -10,4 +10,9 @@
             }
         });
     });
+
+    let el = document.getElementById('listen-now');
+    if (el){
+        el.onclick = () => app.listen("{{page.id}}");
+    }
 </script>

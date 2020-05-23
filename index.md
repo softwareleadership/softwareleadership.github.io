@@ -108,6 +108,8 @@ form:
 {% include host.html %}
 
 <hr />
+{% include google-ads-main.html %}
+<hr />
 
 ## About the Show
 

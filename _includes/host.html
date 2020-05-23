@@ -2,7 +2,7 @@
     <div class="host-about">
         <p>
             Hi! I'm
-            <a href="{{ site.show_host.url }}" target="_blank">{{ site.show_host.name }}</a>, your host for <a href="/" target="_self">{{ site.title }}</a>.
+            <a href="{{ site.author_url }}" target="_blank">{{ site.author }}</a>, your host for <a href="/" target="_self">{{ site.title }}</a>.
         </p>
         <p>
         <blockquote>
@@ -23,12 +23,8 @@
         </p>
     </div>
     <div class="host-img">
-        <!-- <a href="#show_host"> -->
-        <a href="https://jeffdoolittle.com" target="_blank">
-                <img class="thumbnail" src="{{ site.show_host.pic }}" />
+        <a href="{{ site.author_url }}" target="_blank">
+                <img class="thumbnail" src="{{ site.author_img }}" />
         </a>
-        <!-- <a id="show_host" class="lightbox" href="#_">
-            <img src="{{ site.show_host.pic }}" />
-        </a> -->
     </div>
 </div>

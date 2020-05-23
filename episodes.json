@@ -1,0 +1,21 @@
+---
+layout: null
+permalink: episodes.json
+---
+{% assign episodes = site.posts | where_exp: "item", "item.episode != null" %}{
+    "episodes": [{% for episode in episodes %}
+        {
+            "id": "{{episode.id}}",
+            "episode": {{episode.episode}},
+            "slug": "{{episode.slug}}",
+            "title": "{{episode.title}}",
+            "date": "{{episode.date | date: '%F'}}",
+            "file": "{{episode.file}}",
+            "duration": "{{episode.duration}}",
+            "length": {{episode.length}},
+            "image": "{{episode.image}}",
+            "keywords": "{{episode.keywords}}",
+            "summary": "{{episode.summary}}"
+        }{% if episodes.last.id != episode.id %},{%endif%}{% endfor %}
+    ]
+}

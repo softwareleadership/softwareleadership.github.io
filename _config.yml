@@ -3,13 +3,11 @@ url: "https://softwareleadership.io"
 lang: en-US
 subtitle: 
 author: Jeff Doolittle
+author_url: "https://jeffdoolittle.com"
+author_img: /assets/images/logo_1440.jpg
 description: The podcast that helps make good software professionals great!
 email: jeff@softwareleadership.io
 
-show_host:
-  name: Jeff Doolittle
-  pic: /assets/images/logo_1440.jpg
-  url: "https://jeffdoolittle.com"
 google_analytics: UA-167225347-1
 theme: jekyll-theme-cayman
 
