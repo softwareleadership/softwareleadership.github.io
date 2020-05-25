@@ -6,4 +6,6 @@
     {% if page.call_to_action %}
     <a href="{{ page.call_to_action.url }}" class="btn">{{ page.call_to_action.text }}</a>
     {% endif %}
+    {% assign latest = site.posts | where_exp: "item", "item.episode != null" | first %}
+    <a href="{{ latest.id }}" class="btn">Latest Episode</a>
 </header>

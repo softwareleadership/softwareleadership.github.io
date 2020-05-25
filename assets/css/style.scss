@@ -36,6 +36,9 @@ html {
 .page-header {
     background-color: $color-darkslateblue;
     background-image: linear-gradient(180deg, $color-navy, $color-blue);
+    a {
+        min-width: 12em;
+    }
 }
 
 .player-header {
