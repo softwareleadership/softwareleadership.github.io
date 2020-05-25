@@ -1,0 +1,15 @@
+<div class="episode-summary">
+    <div class="episode-summary-image">
+        <img src="{{episode.image}}" />
+    </div>
+    <div class="episode-summary-detail">        
+        <p>
+            <a href="{{episode.id}}">
+                {{episode.date | date: "%B %d, %Y"}}<br />
+                Episode {{include.episode.episode }}: {{ include.episode.title }}
+            </a>
+            </p>
+        <p>{{episode.summary}}</p>
+        <p>{{episode.keywords}}</p>
+    </div>
+</div>

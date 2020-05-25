@@ -12,9 +12,7 @@ layout: none
             <img src="/assets/images/og_image.png" />
         </div>
         {% include google-ads-episode.html %}
-        <div class="player">
-            <iframe src="https://archive.org/embed/RW02RaveningWolvesPart2" frameborder="0"
-                webkitallowfullscreen="false" mozallowfullscreen="false" width="320" height="30"></iframe>
+        <div id="player">
         </div>
 
     </header>
@@ -41,10 +39,13 @@ layout: none
             })
             .then(e => {
                 let ex = document.getElementById("summary");
-                ex.innerText = e.summary;
-
                 let ep = document.getElementById("episode");
+                let pl = document.getElementById("player");
+
+                ex.innerText = e.summary;
                 ep.innerText = `You're listening to Episode ${e.episode}: ${e.title}`
+                pl.innerHTML = `<iframe src="${e.file}" frameborder="0"
+                webkitallowfullscreen="false" mozallowfullscreen="false" width="320" height="30"></iframe>`;
             })
             .catch(err => {
                 console.log(err);

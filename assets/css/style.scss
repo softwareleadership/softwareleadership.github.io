@@ -361,3 +361,19 @@ a {
         padding: .5rem .2rem;
     }
 }
+
+.episode-summary {
+    display: flex;
+    margin-bottom: 1em;
+    a {
+    }
+    .episode-summary-image {
+        flex: 40%;
+        display: inline-block;
+    }
+    .episode-summary-detail {
+        flex: 60%;
+        display: inline-block;
+        margin-left: 2em;
+    }
+}

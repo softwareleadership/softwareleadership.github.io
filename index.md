@@ -107,9 +107,17 @@ form:
 
 {% include host.html %}
 
-<hr />
+---
 {% include google-ads-main.html %}
-<hr />
+---
+
+## Recent Episodes
+
+{% assign allEpisodes = site.posts | where_exp: "item", "item.episode != null" %}
+{% for episode in allEpisodes limit:5 %}
+{% include episode_summary.html episode=episode %}
+---
+{% endfor %}
 
 ## About the Show
 
@@ -119,7 +127,7 @@ It has been an amazing experience so far. However, being just one out of about 1
 I am limited in the amount of content I can produce and in the nature of the topics 
 available for exploration. I sense it may be time to start something of my own.
 
-<hr />
+---
 
 ## Shape the Future of Software Leadership!
 
