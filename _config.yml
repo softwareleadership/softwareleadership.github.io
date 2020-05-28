@@ -20,6 +20,10 @@ defaults:
     values:
       layout: default
       image: /assets/images/og_image.png
+      stripe:
+          key: pk_live_lmTZ1zDD75DrdLLpCPLstbmY00xyU8eqYg
+          success_url: /contribute/success
+          canceled_url: /contribute/canceled
   -
     scope: 
       path: "redirects"

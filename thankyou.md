@@ -22,15 +22,6 @@ Thank you for taking the time to help shape [{{ site.title }}](/). We'll be in t
 
 Please spread the word by telling your friends and colleagues!
 
-<div class="content-share">
-    <textarea rows="9" onclick="this.select();">{{ page.tweet_text }}</textarea>
-
-    <div>
-        <a target="_blank" href="https://twitter.com/intent/tweet?text={{ page.tweet_text | url_encode }}">
-            <i class="fab fa-twitter"></i> Tweet This!
-        </a>
-    </div>
-
-</div>
+{% include tweet_callout.html %}
 
 <a href="./"><i class="fa fa-angle-left"></i> back</a>

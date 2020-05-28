@@ -1,0 +1,49 @@
+<script src="https://js.stripe.com/v3"></script>
+
+<div class="stripe-wrapper">
+    <table class="stripe">
+
+        <tr>
+            <th>Suggested Use</th>
+            <th>Amount</th>
+        </tr>
+
+        {% for price in page.stripe.prices %}
+        <tr>
+            <th>{{price.description}}</th>
+            <td>
+                <button class="btn-stripe-pay" data-price="{{price.api_id}}" data-name="{{price.name}}"
+                    role="link">{{price.amount}}</button>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <div id="error-message"></div>
+</div>
+
+<script>
+    var stripe = Stripe('{{page.stripe.key}}');
+
+    var buttons = document.getElementsByClassName("btn-stripe-pay");
+
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function (button) {
+            stripe.redirectToCheckout({
+                lineItems: [
+                    { price: button.srcElement.dataset.price, quantity: 1 }
+                ],
+                mode: 'payment',
+                successUrl: '{{site.url}}{{page.stripe.success_url}}',
+                cancelUrl: '{{site.url}}{{page.stripe.canceled_url}}',
+            })
+                .then(function (result) {
+                    if (result.error) {
+                        var displayError = document.getElementById('error-message');
+                        displayError.textContent = result.error.message;
+                    }
+                });
+        });
+    }
+</script>

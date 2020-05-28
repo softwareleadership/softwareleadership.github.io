@@ -1,0 +1,11 @@
+<div class="content-share">
+    
+    <textarea rows="9" onclick="this.select();">{{ page.tweet_text }}</textarea>
+
+    <div>
+        <a target="_blank" href="https://twitter.com/intent/tweet?text={{ page.tweet_text | url_encode }}">
+            <i class="fab fa-twitter"></i> Tweet This!
+        </a>
+    </div>
+
+</div>

@@ -31,8 +31,9 @@ layout: null
 		<itunes:category text="Society &amp; Culture" />
         <itunes:category text="Technology" />
         <itunes:explicit>no</itunes:explicit>
-		
-{% for post in site.posts %}
+
+{% assign episodes = site.posts | where_exp: "item", "item.episode != null" %}
+{% for post in episodes %}
         <item>
             <title>{{ post.title | xml_escape }}</title>
             <itunes:author>{{ site.author }}</itunes:author>

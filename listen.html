@@ -5,24 +5,35 @@ layout: none
 <html lang="{{ site.lang | default: "en-US" }}">
 {% include head.html %}
 
-<body>
+<body class="player-body">
 
     <header>
         <div class="player-header">
             <img src="/assets/images/og_image.png" />
         </div>
         {% include google-ads-episode.html %}
-        <div id="player">
-        </div>
-
+        <div id="embedded-player"></div>
     </header>
-    <main class="listen-main">
+
+    <main class="player-description">
+        <div class="listening">You're listening to </div>
         <div id="episode"></div>
         <div id="summary"></div>
     </main>
 
-    {% include footer.html %}
+    <footer class="player-footer">
+        <div class="share">
+            Share this!
+        </div>
+        <div>
+            <a href="/twitter/" target="_blank"><i class="fab fa-twitter fa-3x"></i></a>
+            <a href="/facebook/" target="_blank"><i class="fab fa-facebook fa-3x"></i></a>
+            <a href="/linkedin/" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
+        </div>
+    </footer>
+
     {% include scripts.html %}
+
     <script>
         var url = new URL(location);
         var episodeId = url.searchParams.get('e');
@@ -40,12 +51,12 @@ layout: none
             .then(e => {
                 let ex = document.getElementById("summary");
                 let ep = document.getElementById("episode");
-                let pl = document.getElementById("player");
+                let pl = document.getElementById("embedded-player");
 
                 ex.innerText = e.summary;
-                ep.innerText = `You're listening to Episode ${e.episode}: ${e.title}`
-                pl.innerHTML = `<iframe src="${e.file}" frameborder="0"
-                webkitallowfullscreen="false" mozallowfullscreen="false" width="320" height="30"></iframe>`;
+                ep.innerText = `Episode ${e.episode}: ${e.title}`
+                pl.innerHTML = `<iframe src="${e.embed}" frameborder="0"
+                webkitallowfullscreen="false" mozallowfullscreen="false" height="25"></iframe>`;
             })
             .catch(err => {
                 console.log(err);

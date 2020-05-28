@@ -11,6 +11,7 @@ permalink: episodes.json
             "title": "{{episode.title}}",
             "date": "{{episode.date | date: '%F'}}",
             "file": "{{episode.file}}",
+            "embed": "{{episode.embed}}",
             "duration": "{{episode.duration}}",
             "length": {{episode.length}},
             "image": "{{episode.image}}",

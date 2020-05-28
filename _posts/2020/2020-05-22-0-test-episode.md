@@ -1,10 +1,8 @@
 ---
-layout: default
 episode: 0
-slug: 0-test-episode
 title: Test Episode
-date: 2020-05-22 08:00:00 -0000
-file: https://archive.org/embed/sight
+file: https://ia600303.us.archive.org/22/items/sight/sight_64kb.mp3
+embed: https://archive.org/embed/sight
 duration: "01:13" # mm:ss
 length: 73 # in seconds
 image: /assets/images/og_image.png # fallback to site image if none specified here

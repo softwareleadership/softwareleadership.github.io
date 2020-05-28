@@ -3,13 +3,13 @@
 {% include head.html %}
 <body>
 
-{% if page.episode %}
-{% include header_episode.html %}
-{% else %}
 {% include header.html %}
-{% endif %}
 
-<main id="content" class="main-content" role="main">{{ content }}</main>
+<main id="content" class="main-content" role="main">
+    {{ content }}
+
+    {% include subscribe.html %}
+</main>
 
 {% include footer.html %}
 {% include scripts.html %}

@@ -6,7 +6,7 @@ class App {
         };
 
         this.popOut = (href) => {
-            open(href, 'targetWindow',`toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,width=320,height=611`);
+            open(href, 'targetWindow',`toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,width=320,height=640`);
             return true;
         }
     }

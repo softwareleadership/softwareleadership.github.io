@@ -1,33 +1,15 @@
 ---
 ---
 
-@import 'jekyll-theme-cayman';
-
-$color-navy: #001f3f;
-$color-blue: #0074d9;
-$color-aqua: #7fdbff;
-$color-teal: #39cccc;
-$color-olive: #3d9970;
-$color-green: #2ecc40;
-$color-lime: #01ff70;
-$color-yellow: #ffdc00;
-$color-orange: #ff851b;
-$color-red: #ff4136;
-$color-maroon: #85144b;
-$color-fuchsia: #f012be;
-$color-purple: #b10dc9;
-$color-black: #111111;
-$color-gray: #aaaaaa;
-$color-silver: #d0d0d0;
-$color-white: #ffffff;
-
-$color-darksilver: #cccccc;
-$color-lightgray: #eeeeee;
-$color-darkgray: #777777;
-$color-darkslateblue: #2B3856;
-
 $break-small: 640px;
 $break-normal: 1080px;
+
+@import 'jekyll-theme-cayman';
+
+@import 'colors';
+@import 'player';
+@import 'social';
+@import 'gforms';
 
 html {
 	scroll-behavior: smooth;
@@ -39,20 +21,6 @@ html {
     a {
         min-width: 12em;
     }
-}
-
-.player-header {
-    width: 100%;
-    img {
-        width: 100%;
-    }
-}
-.player-ads {
-    height: 200px;
-    text-align: center;
-};
-.player {
-    text-align: center;
 }
 
 .main-content {
@@ -91,7 +59,7 @@ html {
 
 .advertisement {
     &.placeholder {
-        min-height: 120px;
+        min-height: 140px;
         text-align: center;
         color: $color-teal;
         background-color: grey;
@@ -109,25 +77,6 @@ html {
     }
     #summary {
 
-    }
-}
-
-.social {
-    text-align: center;
-    div {
-        display: inline-block;
-        margin: 0em 2em 2em 2em;
-        i.fa, i.fab, i.fas, i.far {
-            color: $color-darkgray;
-            &:hover {
-                color: $color-blue;
-                cursor: pointer;
-            }
-        }
-        @media screen and (max-width: $break-small) {
-            margin: 0 1em 1em 1em;
-            font-size: .6em;
-        }
     }
 }
 
@@ -184,111 +133,6 @@ div.logo-panel {
 
 .inactive {
     display: none !important;
-}
-
-div.google-form form {
-    width: 80%;
-    font-size: .8em;
-    margin: 0 auto 0 auto;
-    hr {
-        height: 1px;
-    }
-    div.question
-    {
-        width: 100%;
-        padding: .5em;
-        label {
-            display: inline-block;
-            width: 30%;
-            vertical-align: top;
-        }
-        span.glyph {
-            display: inline-block;
-            color: red;
-            vertical-align: top;
-        }
-        input {
-            display: inline-block;
-            width: 65%;
-            padding: .5em;
-            border-radius: 5px;
-            border:none;
-            background-color:#eee;
-            &:hover {
-                background-color: $color-darksilver;
-            }
-        }
-        textarea {
-            display: inline-block;
-            width: 66%;
-            padding: .5em;            
-            border-radius: 5px;
-            border:none;
-            background-color:#eee;
-            resize: none;
-            &:hover {
-                background-color: $color-darksilver;
-            }
-        }
-        .input-group {
-            background-color:#eee;
-            border-radius: 5px;
-            display: inline-block;
-            width: 65%;
-            padding: .5em;
-            &:hover {
-                background-color: $color-silver;
-            }
-            input[type=checkbox] {
-                width: 5%;
-                margin-bottom: .3em;
-            }
-            input[type=radio] {
-                width: 5%;
-                margin-bottom: .3em;
-            }
-            input[type=text].input-other {
-                margin-top: .3em;
-                margin-bottom: .3em;
-                margin-left: 2.8em;
-                background-color: $color-lightgray;
-                &:hover {
-                    color: $color-blue;
-                    cursor: pointer;
-                }
-            }
-            label {
-                width: 90%;
-                padding-left: 1em;
-                margin-bottom: .3em;
-                &:hover {
-                    color: $color-blue;
-                    cursor: pointer;
-                }
-            }        
-        }
-    }
-    .submit-form-wrapper {
-        border: 1px solid $color-blue;
-        padding: 1px;
-        font-size: 1.2em;
-        color: $color-darkgray;
-        border-radius: 5px;
-        button[type=submit] {
-            border-radius: 5px;
-            border: 1px solid $color-blue;
-            display: block;
-            margin: 0 auto 0 auto;
-            border-color: $color-blue;
-            background-color: $color-silver;
-            color: $color-black;
-            width: 100%;
-            &:hover {
-                color: $color-silver;
-                background-color: $color-blue;
-            }
-        }
-    }
 }
 
 div.content-share {
@@ -378,5 +222,21 @@ a {
         flex: 60%;
         display: inline-block;
         margin-left: 2em;
+    }
+}
+
+div.stripe-wrapper {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table.stripe {
+    text-align: left;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    td {
+        text-align: center;
     }
 }

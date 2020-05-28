@@ -103,13 +103,26 @@ form:
             name: entry.1435205606
 ---
 
+## Welcome!
+
+[The Software Leadership Podcast](/) features a broad range of software and technology leaders representing a diversity of cultures, backgrounds, perspectives, industries and platforms. Expect to be challenged, educated and empowered. Bring an open mind. You never know what you might learn when you listen well, even to positions that don't naturally align with your current conceptions.
+
 ## Recent Episodes
 
-{% assign allEpisodes = site.posts | where_exp: "item", "item.episode != null" %}
-{% for episode in allEpisodes limit:5 %}
+{% assign latestEpisodes = site.posts | where_exp: "item", "item.episode != null" | limit:5 %}
+{% for episode in latestEpisodes %}
 {% include episode_summary.html episode=episode %}
----
 {% endfor %}
+<hr />
+
+## Latest Posts
+
+{% assign latestPosts = site.posts | where_exp: "item", "item.blog" | limit:5 %}
+{% for post in latestPosts %}
+{{post.date | date: '%B %d, %Y'}} - [{{post.title}}]({{post.id}})
+
+{% endfor %}
+<hr />
 
 ## Your Host
 
@@ -124,8 +137,6 @@ publish more content more often. I also want to  explore topics of interest to s
 professionals of all kinds rather than focusing on  software engineers in particular. To 
 accomplish these goals, I've sensed that it's time to 
 start something new.
-
-The show will feature a broad range of software and technology leaders representing a diversity of cultures, backgrounds, industries and platforms. Expect to be challenged, educated and empowered. Bring an open mind. You never know what you might learn when you listen well, even to positions that don't naturally align with your current conceptions.
 
 <!-- {% include google-ads-main.html %} -->
 
