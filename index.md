@@ -103,14 +103,6 @@ form:
             name: entry.1435205606
 ---
 
-## Your Host
-
-{% include host.html %}
-
----
-{% include google-ads-main.html %}
----
-
 ## Recent Episodes
 
 {% assign allEpisodes = site.posts | where_exp: "item", "item.episode != null" %}
@@ -119,15 +111,23 @@ form:
 ---
 {% endfor %}
 
+## Your Host
+
+{% include host.html %}
+
 ## About the Show
 
 I first took the plunge into the realm of podcasting in 2019 when I joined the 
-team at [Software Engineering Radio (se-radio.net)](https://www.se-radio.net/team/jeff-doolittle/).
-It has been an amazing experience so far. However, being just one out of about 10 hosts means 
-I am limited in the amount of content I can produce and in the nature of the topics 
-available for exploration. I sense it may be time to start something of my own.
+team at [Software Engineering Radio (se-radio.net)](https://www.se-radio.net/team/jeff-doolittle/). It has been an amazing experience so far, but being just 
+one out of about 10 hosts means I can only release so much content. I want to produce and 
+publish more content more often. I also want to  explore topics of interest to software 
+professionals of all kinds rather than focusing on  software engineers in particular. To 
+accomplish these goals, I've sensed that it's time to 
+start something new.
 
----
+The show will feature a broad range of software and technology leaders representing a diversity of cultures, backgrounds, industries and platforms. Expect to be challenged, educated and empowered. Bring an open mind. You never know what you might learn when you listen well, even to positions that don't naturally align with your current conceptions.
+
+<!-- {% include google-ads-main.html %} -->
 
 ## Shape the Future of Software Leadership!
 
