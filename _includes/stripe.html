@@ -30,9 +30,14 @@
 
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener("click", function (button) {
+            let quantity = 1;
+            if (button.srcElement.dataset.name === "CUSTOM") {
+                let response = prompt("Please enter a valid whole dollar amount, such as 15 or 42", 25);
+                quantity = parseInt(response, 10) * 100;
+            }
             stripe.redirectToCheckout({
                 lineItems: [
-                    { price: button.srcElement.dataset.price, quantity: 1 }
+                    { price: button.srcElement.dataset.price, quantity: quantity }
                 ],
                 mode: 'payment',
                 successUrl: '{{site.url}}{{page.stripe.success_url}}',

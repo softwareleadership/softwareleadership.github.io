@@ -2,6 +2,8 @@
 title: Welcome to our Early Supporters!
 sitemap: false
 stripe:
+    success_url: /contribute-success
+    canceled_url: /contribute-canceled
     prices:
         -
             description: Two Months of Domain Registration
@@ -41,7 +43,7 @@ stripe:
         - 
             description: Pick your Contribution!
             amount: Custom
-            name: 
+            name: CUSTOM
             api_id: price_HMHECHOBSbbIam
 
 tweet_text: >
