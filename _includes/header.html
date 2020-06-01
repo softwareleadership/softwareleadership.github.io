@@ -1,5 +1,8 @@
 <header class="page-header" role="banner">
-    <h1 class="project-name"><i class="fas fa-podcast fa-2x c-logo"></i> {{ site.title }}</h1>
+    <h1 class="project-name">
+        <a href="/"><i class="fas fa-podcast fa-2x c-logo"></i></a>
+        {{ site.title }}
+    </h1>
     {% if page.blog %}
     <h2 class="project-tagline">{{page.date | date: '%B %d, %Y'}} - {{ page.title }}</h2>
     {% elsif page.episode %}
