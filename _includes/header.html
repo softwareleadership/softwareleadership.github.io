@@ -1,20 +1,20 @@
 <header class="page-header" role="banner">
-    <h1 class="project-name"><i class="fas fa-podcast fa-2x c-logo"></i>{{ site.title }}</h1>
+    <h1 class="project-name"><i class="fas fa-podcast fa-2x c-logo"></i> {{ site.title }}</h1>
     {% if page.blog %}
     <h2 class="project-tagline">{{page.date | date: '%B %d, %Y'}} - {{ page.title }}</h2>
     {% elsif page.episode %}
     <h2 class="project-tagline">Episode {{ page.episode }}: {{ page.title }}</h2>
     {% else %}
-    <h2 class="project-tagline">{{ page.title | default: site.description }}</h2>
+    <h2 class="project-tagline">{{ page.title | site.description }}</h2>
     {% endif %}
 
     {% if page.call_to_action and page.call_to_action.url %}
     <a href="{{ page.call_to_action.url }}" class="btn">{{ page.call_to_action.text }}</a>
     {% endif %}
-    {% if page.blog %}
+    {% if page.episode %}
+    <a id="listen-now" class="btn">Listen Now!</a>
+    {% else%}
     {% assign latest = site.posts | where_exp: "item", "item.episode != null" | first %}
     <a href="{{ latest.id }}" class="btn">Latest Episode</a>
-    {% elsif page.episode %}
-    <a id="listen-now" class="btn">Listen Now!</a>
     {% endif %}
 </header>

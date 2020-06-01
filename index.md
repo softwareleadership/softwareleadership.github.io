@@ -1,5 +1,5 @@
 ---
-title: The Software Leadership Podcast
+title: The podcast that helps make good software professionals great!
 call_to_action:
     text: Shape the Future!
     url: '#shape-the-future-of-software-leadership'
