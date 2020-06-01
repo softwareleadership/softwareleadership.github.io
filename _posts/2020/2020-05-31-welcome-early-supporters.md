@@ -40,11 +40,11 @@ stripe:
             amount: $500
             name: DONATEFIVEHUNDRED
             api_id: price_HMHEJIQPVOitab
-        - 
-            description: Pick your Contribution!
-            amount: Custom
-            name: CUSTOM
-            api_id: price_HMHECHOBSbbIam
+        # - 
+        #     description: Pick your Contribution!
+        #     amount: Custom
+        #     name: CUSTOM
+        #     api_id: price_HMHECHOBSbbIam
 
 tweet_text: >
     There's a new podcast coming: The Software Leadership Podcast!
